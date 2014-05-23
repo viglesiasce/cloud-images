@@ -1,6 +1,6 @@
 #
 # CentOS base image
-# 
+#
 lang en_US.UTF-8
 keyboard us
 skipx
@@ -15,6 +15,8 @@ part / --size 1536 --grow --fstype ext3
 zerombr
 rootpw --iscrypted $1$HEVobWzu$6d5IWr.r7Df15XHLFCggW/
 reboot
+
+repo --name=epel-6 --baseurl=http://mirror.eucalyptus-systems.com/mirrors/epel/6/x86_64/
 
 %packages --nobase --excludedocs --instLangs=en
 @core
@@ -69,6 +71,7 @@ cloud-init
 -ql2400-firmware
 -ql2500-firmware
 -aic94xx-firmware
+-aic94xx-firmware
 -iwl6000g2a-firmware
 -iwl100-firmware
 -bfa-firmware
@@ -90,10 +93,6 @@ EOF
 sed -i 's/rhgb quiet//' /boot/grub/grub.conf
 sed -i 's/hiddenmenu//' /boot/grub/grub.conf
 sed -i 's/splashimage.*//' /boot/grub/grub.conf
-#
-# Fix sudo settings so that servo is able to start haproxy without a tty
-sed -i '/requiretty/s/^/#/' /etc/sudoers
-sed -i '/!visiblepw/s/^/#/' /etc/sudoers
 
 #
 # Disable zeroconf
@@ -113,4 +112,3 @@ PermitRootLogin without-password
 EOF
 
 %end
-
