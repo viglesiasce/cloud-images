@@ -103,6 +103,10 @@ echo "NOZEROCONF=yes" >> /etc/sysconfig/network
 passwd -l root
 
 #
+# Enable root login with ssh-key
+sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
+
+#
 # Update SSHD configuration
 sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
