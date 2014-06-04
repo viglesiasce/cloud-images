@@ -5,18 +5,29 @@ The steps provided here were tested on CentOS 6.
 
 # How To 
 
-1. Download Packer
->  wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_amd64.zip
+1. Download Packer: 
+
+        wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_amd64.zip
+
 2. Unzip Packer
-> unzip 0.6.0_linux_amd64.zip -d /usr/local/bin
+
+        unzip 0.6.0_linux_amd64.zip -d /usr/local/bin
+        
 3. Download this repository
->  wget https://github.com/viglesiasce/cloud-images/archive/master.zip
+
+        wget https://github.com/viglesiasce/cloud-images/archive/master.zip
+        
 4. Unzip this repository
-> unzip cloud-images-master.zip
+
+        unzip cloud-images-master.zip
+        
 5. Enter the directory of the image you'd like to create
-> cd cloud-images-master/centos
+
+        cd cloud-images-master/centos
+        
 6. Run Packer
- > packer build centos-packer.json
+
+        packer build centos-packer.json
 
 Once that process completes you will have a directory `output-qemu` which contains your RAW cloud image.
 
