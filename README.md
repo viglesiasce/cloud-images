@@ -7,11 +7,11 @@ The steps provided here were tested on CentOS 6.
 
 1. Download Packer: 
 
-        wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_amd64.zip
+        wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_amd64.zip -O packer.zip
 
 2. Unzip Packer
 
-        unzip 0.6.0_linux_amd64.zip -d /usr/local/bin
+        unzip packer.zip -d /usr/local/bin
 
 3. Install virt-sysprep
 
