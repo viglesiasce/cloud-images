@@ -12,24 +12,36 @@ The steps provided here were tested on CentOS 6.
 2. Unzip Packer
 
         unzip 0.6.0_linux_amd64.zip -d /usr/local/bin
+
+3. Install virt-sysprep
+
+        yum install -y libguestfs-tools-c
         
-3. Download this repository
+4. Download this repository
 
         wget https://github.com/viglesiasce/cloud-images/archive/master.zip
         
-4. Unzip this repository
+5. Unzip this repository
 
         unzip cloud-images-master.zip
         
-5. Enter the directory of the image you'd like to create
+6. Enter the directory of the image you'd like to create
 
         cd cloud-images-master/centos
         
-6. Run Packer
+7. Run Packer
 
         packer build centos-packer.json
+        
+8. Sysprep the image
 
-Once that process completes you will have a directory `output-qemu` which contains your RAW cloud image.
+        virt-sysprep -a output-qemu/*.raw
+
+Once that process completes you will have a RAW image in the `output-qemu` directory which is ready to be uploaded to your cloud of choice. 
+
+For example in Eucalyptus 4.0:
+
+        euca-install-image -i output-qemu/centos-base.raw --virtualization-type hvm -b centos-base -r x86_64 --name centos-base
 
 # Customizing your image
 In order to customize your image change the parameters in the json file found in each distro's folder. Here you can change the size, output format, or provisioning/customization steps. 
