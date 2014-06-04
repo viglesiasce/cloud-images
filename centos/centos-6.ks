@@ -13,11 +13,10 @@ network --bootproto=dhcp --device=eth0 --onboot=on
 services --enabled=network,ntpd,ntpdate
 part / --size 1536 --grow --fstype ext3
 zerombr
-rootpw --plaintext password
+rootpw password
 reboot
 
 repo --name=Centos-Base --mirrorlist=http://mirrorlist.centos.org/?release=6&arch=x86_64&repo=os
-repo --name=epel-6 --baseurl=http://mirror.eucalyptus-systems.com/mirrors/epel/6/x86_64/
 
 %packages --nobase --excludedocs --instLangs=en
 @core
@@ -37,7 +36,6 @@ sudo
 system-config-firewall-base
 ntp
 ntpdate
-cloud-init
 
 # Package exclusions
 -plymouth
@@ -98,14 +96,5 @@ sed -i 's/splashimage.*//' /boot/grub/grub.conf
 #
 # Disable zeroconf
 echo "NOZEROCONF=yes" >> /etc/sysconfig/network
-
-#
-# Enable root login with ssh-key
-sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-
-cat >> /etc/ssh/sshd_config <<EOF
-UseDNS no
-PermitRootLogin without-password
-EOF
 
 %end

@@ -1,4 +1,13 @@
 #!/bin/bash
+### Trap code from: http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html
+###                 http://stackoverflow.com/questions/13221338/how-to-kill-current-command-when-bash-script-is-killed
+trap : SIGTERM SIGINT # Trap these two (killing) signals.  These will cause wait
+                      # to return a value greater than 128 immediately after received.
 params=$*
 new_params=`echo $params | sed 's/-display none//g'`
 /usr/libexec/qemu-kvm $new_params
+pid=$!
+
+wait $pid # Wait for qemu-kvm to finish.
+[ $? -gt 128 ] && { kill $pid ; exit 128; } ; # If a signal was recieved
+                                              # kill qemu-kvm and exit.
