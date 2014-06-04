@@ -13,7 +13,7 @@ network --bootproto=dhcp --device=eth0 --onboot=on
 services --enabled=network,ntpd,ntpdate
 part / --size 1536 --grow --fstype ext3
 zerombr
-rootpw --iscrypted $1$HEVobWzu$6d5IWr.r7Df15XHLFCggW/
+rootpw --plaintext password
 reboot
 
 repo --name=epel-6 --baseurl=http://mirror.eucalyptus-systems.com/mirrors/epel/6/x86_64/
@@ -99,16 +99,8 @@ sed -i 's/splashimage.*//' /boot/grub/grub.conf
 echo "NOZEROCONF=yes" >> /etc/sysconfig/network
 
 #
-# Lock root login (just in case)
-passwd -l root
-
-#
 # Enable root login with ssh-key
 sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-
-#
-# Update SSHD configuration
-sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 cat >> /etc/ssh/sshd_config <<EOF
 UseDNS no

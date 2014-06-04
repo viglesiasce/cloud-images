@@ -1,0 +1,31 @@
+{
+  "builders": [
+  {
+  "type": "qemu",
+  "format": "raw",
+  "iso_url": "http://mirror.chpc.utah.edu/pub/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+  "iso_checksum": "0d9dc37b5dd4befa1c440d2174e88a87",
+  "iso_checksum_type": "md5",
+  "ssh_username": "root",
+  "ssh_password": "password",
+  "disk_size": "10000",
+  "http_directory" : ".",
+  "http_port_min" : 9001,
+  "http_port_max" : 9001,
+  "shutdown_command": "shutdown -P now",
+  "vm_name": "centos-base",
+  "disk_interface": "virtio",
+  "qemu_binary": "./fake-qemu",
+  "headless": true,
+  "accelerator": "kvm",
+  "qemuargs": [["-machine", "type=pc,accel=kvm"],
+               ["-device", "virtio-net-pci,netdev=user.0"]],
+  "boot_command" : ["<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.ks<enter><wait>"]  
+  }
+  ],
+  "provisioners": [
+  {
+    "type": "shell",
+    "inline": ["echo Build Complete"]
+  }]
+}
