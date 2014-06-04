@@ -33,3 +33,8 @@ Once that process completes you will have a directory `output-qemu` which contai
 
 # Customizing your image
 In order to customize your image change the parameters in the json file found in each distro's folder. Here you can change the size, output format, or provisioning/customization steps. 
+
+For more information on how to customize a Packer run please see: http://www.packer.io/docs
+
+# Contributing
+In order to contribute a new distro send a pull request with a new folder with the name of the distribution. This folder should contain all the artifacts necessary to create the most basic functioning cloud image based on this distribution.  
