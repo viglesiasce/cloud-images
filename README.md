@@ -19,7 +19,7 @@ The steps provided here were tested on CentOS 6.
         
 4. Download this repository
 
-        wget https://github.com/viglesiasce/cloud-images/archive/master.zip
+        wget https://github.com/viglesiasce/cloud-images/archive/master.zip -O cloud-images-master.zip
         
 5. Unzip this repository
 
