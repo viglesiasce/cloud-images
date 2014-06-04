@@ -15,7 +15,7 @@
   "shutdown_command": "shutdown -P now",
   "vm_name": "centos-base",
   "disk_interface": "virtio",
-  "qemu_binary": "./fake-qemu",
+  "qemu_binary": "../utils/fake-qemu",
   "headless": true,
   "accelerator": "kvm",
   "qemuargs": [[ "-m", "1024m" ],
