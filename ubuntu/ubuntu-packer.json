@@ -36,6 +36,6 @@
   "provisioners": [
   {
     "type": "shell",
-    "inline": ["echo Build Complete"]
+    "script": "post_install.sh"
   }]
 }
