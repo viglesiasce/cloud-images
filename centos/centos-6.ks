@@ -16,6 +16,7 @@ zerombr
 rootpw --plaintext password
 reboot
 
+repo --name=Centos-Base --mirrorlist=http://mirrorlist.centos.org/?release=6&arch=x86_64&repo=os
 repo --name=epel-6 --baseurl=http://mirror.eucalyptus-systems.com/mirrors/epel/6/x86_64/
 
 %packages --nobase --excludedocs --instLangs=en

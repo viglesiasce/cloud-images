@@ -18,7 +18,8 @@
   "qemu_binary": "./fake-qemu",
   "headless": true,
   "accelerator": "kvm",
-  "qemuargs": [["-machine", "type=pc,accel=kvm"],
+  "qemuargs": [[ "-m", "1024m" ],
+               ["-machine", "type=pc,accel=kvm"],
                ["-device", "virtio-net-pci,netdev=user.0"]],
   "boot_command" : ["<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.ks<enter><wait>"]  
   }
