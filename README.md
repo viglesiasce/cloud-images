@@ -5,15 +5,15 @@ The steps provided here were tested on CentOS 6.
 
 # How To 
 
-1. Download Packer: 
+1. Download [Packer](http://www.packer.io/): 
 
         wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_amd64.zip -O packer.zip
 
-2. Unzip Packer
+2. Unzip [Packer](http://www.packer.io/)
 
         unzip packer.zip -d /usr/local/bin
 
-3. Install virt-sysprep
+3. Install [virt-sysprep](http://libguestfs.org/virt-sysprep.1.html)
 
         yum install -y libguestfs-tools-c
         
