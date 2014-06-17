@@ -3,7 +3,7 @@
   {
   "type": "qemu",
   "format": "raw",
-  "iso_url": "http://download.opensuse.org/distribution/13.1/iso/openSUSE-13.1-NET-x86_64.iso",
+  "iso_url": "http://opensuse.mirror.freedomvoice.com/distribution/13.1/iso/openSUSE-13.1-NET-x86_64.iso",
   "iso_checksum": "6c0d656895cbd92f34de61d98ca364ea",
   "iso_checksum_type": "md5",
   "ssh_username": "root",
