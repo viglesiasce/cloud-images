@@ -8,6 +8,7 @@
   "iso_checksum_type": "md5",
   "ssh_username": "root",
   "ssh_password": "password",
+  "ssh_wait_timeout": "30m",
   "disk_size": "5000",
   "http_directory" : ".",
   "http_port_min" : 9001,
