@@ -1,0 +1,37 @@
+{
+  "builders": [
+  {
+  "type": "qemu",
+  "format": "raw",
+  "iso_url": "http://download.opensuse.org/distribution/13.1/iso/openSUSE-13.1-NET-x86_64.iso",
+  "iso_checksum": "6c0d656895cbd92f34de61d98ca364ea",
+  "iso_checksum_type": "md5",
+  "ssh_username": "root",
+  "ssh_password": "password",
+  "disk_size": "5000",
+  "http_directory" : ".",
+  "http_port_min" : 9001,
+  "http_port_max" : 9001,
+  "shutdown_command": "shutdown -P now",
+  "vm_name": "centos-base",
+  "disk_interface": "virtio",
+  "qemu_binary": "../utils/fake-qemu",
+  "headless": true,
+  "accelerator": "kvm",
+  "qemuargs": [[ "-m", "1024m" ],
+               ["-machine", "type=pc,accel=kvm"],
+               ["-device", "virtio-net-pci,netdev=user.0"]],
+  "boot_command": [
+        "<esc><enter><wait>",
+        "linux netsetup=dhcp lang=en_US hostname={{.Name}}",
+        " autoyast=http://{{.HTTPIP}}:{{.HTTPPort}}/autoinst.xml",
+        " textmode=1<wait><enter><wait>"
+      ]
+  }
+  ],
+  "provisioners": [
+  {
+    "type": "shell",
+    "script": "post_install.sh"
+  }]
+}
