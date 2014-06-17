@@ -3,8 +3,8 @@
   {
   "type": "qemu",
   "format": "raw",
-  "iso_url": "http://cdimage.debian.org/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-netinst.iso",
-  "iso_checksum": "e7e9433973f082a297793c3c5010b2c5",
+  "iso_url": "http://cdimage.debian.org/debian-cd/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-netinst.iso",
+  "iso_checksum": "8fdb6715228ea90faba58cb84644d296",
   "iso_checksum_type": "md5",
   "ssh_username": "root",
   "ssh_password": "password",
@@ -12,7 +12,7 @@
   "http_directory" : ".",
   "http_port_min" : 9001,
   "http_port_max" : 9001,
-  "shutdown_command": "shutdown -P now",
+  "shutdown_command": "shutdown -h now",
   "vm_name": "debian-base",
   "disk_interface": "virtio",
   "qemu_binary": "../utils/fake-qemu",
@@ -30,11 +30,12 @@
             "kbd-chooser/method=us <wait>",
             "fb=false <wait>",
             "debconf/frontend=noninteractive <wait>",
+            "netcfg/get_hostname=localhost netcfg/get_domain=localdomain",
             "console-setup/ask_detect=false <wait>",
             "console-keymaps-at/keymap=us <wait>",
             "keyboard-configuration/xkb-keymap=us <wait>",
             "<enter><wait>"
-        ]  
+        ]
   }
   ],
   "provisioners": [
