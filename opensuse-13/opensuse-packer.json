@@ -13,7 +13,7 @@
   "http_port_min" : 9001,
   "http_port_max" : 9001,
   "shutdown_command": "shutdown -P now",
-  "vm_name": "centos-base",
+  "vm_name": "opensuse-13.1-base",
   "disk_interface": "virtio",
   "qemu_binary": "../utils/fake-qemu",
   "headless": true,
@@ -23,9 +23,9 @@
                ["-device", "virtio-net-pci,netdev=user.0"]],
   "boot_command": [
         "<esc><enter><wait>",
-        "linux netsetup=dhcp lang=en_US hostname={{.Name}}",
+        "linux netdevice=eth0 netsetup=dhcp lang=en_US hostname={{.Name}}",
         " autoyast=http://{{.HTTPIP}}:{{.HTTPPort}}/autoinst.xml",
-        " textmode=1<wait><enter><wait>"
+        " install=http://download.opensuse.org/distribution/13.1/repo/oss/ textmode=1<wait><enter><wait>"
       ]
   }
   ],
