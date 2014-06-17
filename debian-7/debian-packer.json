@@ -13,7 +13,7 @@
   "http_port_min" : 9001,
   "http_port_max" : 9001,
   "shutdown_command": "shutdown -h now",
-  "vm_name": "debian-base",
+  "vm_name": "debian-7-base",
   "disk_interface": "virtio",
   "qemu_binary": "../utils/fake-qemu",
   "headless": true,

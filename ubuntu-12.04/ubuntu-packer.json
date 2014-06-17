@@ -13,7 +13,7 @@
   "http_port_min" : 9001,
   "http_port_max" : 9001,
   "shutdown_command": "shutdown -P now",
-  "vm_name": "ubuntu-base",
+  "vm_name": "ubuntu-precise-base",
   "disk_interface": "virtio",
   "qemu_binary": "../utils/fake-qemu",
   "headless": true,
