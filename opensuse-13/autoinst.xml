@@ -50,12 +50,14 @@
           <mount>swap</mount>
           <size>500M</size>
         </partition>
-        <partition><label>root</label><mountby config:type="symbol">label</mountby>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <filesystem config:type="symbol">ext4</filesystem>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <lv_name>root</lv_name>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <mount>/</mount>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <size>max</size>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </partition>
+        <partition>
+          <label>root</label>
+          <mountby config:type="symbol">label</mountby>
+          <filesystem config:type="symbol">ext4</filesystem>
+          <lv_name>root</lv_name>
+          <mount>/</mount>
+          <size>max</size>
+        </partition>
       </partitions>
       <pesize>4M</pesize>
       <type config:type="symbol">CT_LVM</type>
@@ -92,15 +94,17 @@
     <do_online_update config:type="boolean">true</do_online_update>
     <kernel>kernel-default</kernel>
     <patterns config:type="list">
-      <pattern>base</pattern>
+      <pattern>enhanced_base</pattern>
+      <pattern>sw_management</pattern>
+      <pattern>yast2_basis</pattern>
     </patterns>
-    <packages config:type="list"><package>kernel-default-devel</package><package>gcc</package><package>glibc-locale</package><package>grub2</package><package>make</package><package>iproute2</package><package>ntp</package><package>openssh</package><package>procps</package><package>sudo</package><package>vim-data</package><package>yast2-hardware-detection</package><package>yast2-runlevel</package><package>yast2-users</package><package>zypper</package><package>bash</package><package>puppet</package><package>autoyast2-installation</package><package>autoyast2</package><package>bundle-lang-common-en</package><package>yast2-installation</package><package>yast2-network</package>
-                                                                                                                                                                                                                                                                                                                                                            <package>yast2-theme-openSUSE</package>
-                                                                                                                                                                                                                                                                                                                                                                    </packages>
-    <remove-packages config:type="list">
-      <package>virtualbox-guest-kmp-default</package>
-      <package>virtualbox-guest-tools</package>
-    </remove-packages>
+    <packages config:type="list">
+      <package>kernel-default</package>
+      <package>glibc-locale</package>
+      <package>grub2</package>
+      <package>ntp</package>
+      <package>sudo</package>
+    </packages>                                                                                                                                                                                                                                                                                                                                                 
   </software>
   <runlevel>
     <default>3</default>
