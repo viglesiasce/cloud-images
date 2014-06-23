@@ -27,7 +27,7 @@ The steps provided here were tested on CentOS 6.
         
 6. Enter the directory of the image you'd like to create
 
-        cd cloud-images-master/centos
+        cd cloud-images-master/centos-6
         
 7. Run Packer
 
