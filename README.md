@@ -27,7 +27,7 @@ The steps provided here were tested on CentOS 6.
         
 6. Enter the directory of the image you'd like to create
 
-        cd cloud-images-master/centos
+        cd cloud-images-master/centos-6
         
 7. Run Packer
 
@@ -41,7 +41,7 @@ Once that process completes you will have a RAW image in the `output-qemu` direc
 
 For example in Eucalyptus 4.0:
 
-        euca-install-image -i output-qemu/centos-base.raw --virtualization-type hvm -b centos-base -r x86_64 --name centos-base
+        euca-install-image -i output-qemu/centos-6-base.raw --virtualization-type hvm -b centos-base -r x86_64 --name centos-base
 
 # Customizing your image
 In order to customize your image change the parameters in the json file found in each distro's folder. Here you can change the size, output format, or provisioning/customization steps. 
