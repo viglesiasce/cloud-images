@@ -3,7 +3,7 @@
   {
   "type": "qemu",
   "format": "raw",
-  "iso_url": "http://buildlogs.centos.org/centos/7/os/x86_64-20140704-1/images/boot.iso",
+  "iso_url": "http://mirror.cisp.com/CentOS/7/os/x86_64/images/boot.iso",
   "iso_checksum": "58d0d73cde96b075d3d9a9091f3757f3",
   "iso_checksum_type": "md5",
   "ssh_username": "root",
