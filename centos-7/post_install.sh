@@ -5,7 +5,7 @@ name=base
 baseurl=http://buildlogs.centos.org/centos/7/os/x86_64-20140614/
 gpgcheck=0
 EOF
-yum install -y http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.1.noarch.rpm
+yum install -y http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm
 yum install -y cloud-init
 
 ### Configure cloud-init for root
