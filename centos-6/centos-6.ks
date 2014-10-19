@@ -10,7 +10,7 @@ selinux --disabled
 firewall --disabled
 bootloader --timeout=1  --append="serial=tty0 console=ttyS0,115200n8"
 network --bootproto=dhcp --device=eth0 --onboot=on
-services --enabled=network,ntpd,ntpdate
+services --enabled=network,ntpd,ntpdate,acpid
 autopart
 zerombr
 rootpw password
@@ -36,6 +36,7 @@ sudo
 system-config-firewall-base
 ntp
 ntpdate
+acpid
 
 # Package exclusions
 -plymouth
