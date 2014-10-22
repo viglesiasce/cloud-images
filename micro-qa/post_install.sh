@@ -25,8 +25,8 @@ service ntpd start
 service jenkins start
 pushd /var/lib
 git clone https://github.com/eucalyptus/micro-qa.git
-rsync -va micro-qa/ jenkins/
+rsync -va micro-qa/jenkins/ jenkins/
 chown -R jenkins:jenkins jenkins/
 popd
-service jenkins restart
+service jenkins start
 chkconfig jenkins on
