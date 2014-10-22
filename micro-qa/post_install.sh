@@ -25,15 +25,8 @@ service ntpd start
 service jenkins start
 pushd /var/lib
 git clone https://github.com/eucalyptus/micro-qa.git
-<<<<<<< HEAD
 rsync -va micro-qa/jenkins/ jenkins/
 chown -R jenkins:jenkins jenkins/
 popd
 service jenkins start
-=======
-rsync -va micro-qa/jenkins jenkins/
-chown -R jenkins:jenkins jenkins/
-popd
-service jenkins restart
->>>>>>> origin/patch-1
 chkconfig jenkins on
