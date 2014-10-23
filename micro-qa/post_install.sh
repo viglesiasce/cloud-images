@@ -12,7 +12,7 @@ sed -i 's/cloud-user/root/g' /etc/cloud/cloud.cfg
 cat /etc/cloud/cloud.cfg
  
 ### Setup microQA: Source https://gist.github.com/viglesiasce/5847752
-yum install -y python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp wget unzip
+yum install -y python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp wget unzip ipython
  
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
@@ -28,5 +28,7 @@ git clone https://github.com/eucalyptus/micro-qa.git
 rsync -va micro-qa/jenkins/ jenkins/
 chown -R jenkins:jenkins jenkins/
 popd
+virtualenv /var/lib/jenkins/share/eutester-base
+easy_install pip
 service jenkins start
 chkconfig jenkins on
