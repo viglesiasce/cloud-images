@@ -1,0 +1,41 @@
+{
+  "builders": [
+  {
+  "type": "qemu",
+  "format": "raw",
+  "iso_url": "http://mirrors.kernel.org/ubuntu-releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+  "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
+  "iso_checksum_type": "md5",
+  "ssh_username": "vagrant",
+  "ssh_password": "password",
+  "disk_size": "5000",
+  "http_directory" : ".",
+  "http_port_min" : 9001,
+  "http_port_max" : 9001,
+  "shutdown_command": "echo password | sudo -S sh /tmp/shutdown",
+  "vm_name": "ubuntu-trusty-base",
+  "disk_interface": "virtio",
+  "qemu_binary": "../utils/fake-qemu",
+  "headless": true,
+  "accelerator": "kvm",
+  "qemuargs": [["-machine", "type=pc,accel=kvm"],
+               ["-device", "virtio-net-pci,netdev=user.0"]],
+  "boot_command" : [
+            "<esc><esc><enter><wait>",
+            "/install/vmlinuz noapic ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname=ubuntu ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ]  
+  }
+ ],
+  "provisioners": [
+  {
+    "type": "shell",
+    "script": "post_install.sh"
+  }]
+}
